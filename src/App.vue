@@ -15,7 +15,11 @@
       </div>
     </navbar>
     <main class="grow bg-[#241F31]">
-      <router-view />
+      <router-view v-slot="{ Component, route }">
+        <transition :name="route.meta.transition as string || 'fade'" mode="out-in">
+          <component :is="Component" :key="route.path" />
+        </transition>
+      </router-view>
     </main>
     <footer class="h-10 text-center md:text-left h-40 flex items-center bg-[#1B273B]">
       <p class="container mx-auto max-w-screen-lg prose prose-primary text-sm">
@@ -24,3 +28,15 @@
     </footer>
   </div>
 </template>
+
+<style>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+</style>

@@ -8,9 +8,9 @@ import About from './components/About.vue'
 import Contact from './components/Contact.vue'
 
 const routes = [
-    { path: '/', component: Home },
-    { path: '/about', component: About },
-    { path: '/contact', component: Contact },
+    { path: '/', component: Home, meta: { transition: 'fade' }, },
+    { path: '/about', component: About, meta: { transition: 'fade' }, },
+    { path: '/contact', component: Contact, meta: { transition: 'fade' }, },
 ]
 
 const router = VueRouter.createRouter({
