@@ -9,14 +9,14 @@
           <img src="./assets/dbcs.webp" alt="Dynamic Business Consulting Stockholm" />
         </router-link>
         <ul class="flex-col md:flex-row flex md:items-center text-center md:w-60 uppercase text-[#6D9EEB]">
-          <li class="w-30 h-8 hover:border-b-4 hover:text-[#93C37B]"><router-link to="/about" class="">About</router-link></li>
+          <li class="w-30 h-8 hover:border-b-4 hover:text-[#93C37B]"><router-link to="/about">About</router-link></li>
           <li class="w-30 h-8 hover:border-b-4 hover:text-[#93C37B]"><router-link to="/contact">Contact</router-link></li>
         </ul>
       </div>
     </navbar>
     <main class="grow bg-[#241F31]">
       <router-view v-slot="{ Component, route }">
-        <transition :name="route.meta.transition as string || 'fade'" mode="out-in">
+        <transition :name="route.meta.transition || 'fade'" mode="out-in">
           <component :is="Component" :key="route.path" />
         </transition>
       </router-view>
