@@ -16,7 +16,7 @@
     </navbar>
     <main class="grow bg-[#241F31]">
       <router-view v-slot="{ Component, route }">
-        <transition :name="route.meta.transition || 'fade'" mode="out-in">
+        <transition :name="String(route.meta.transition || 'fade')" mode="out-in">
           <component :is="Component" :key="route.path" />
         </transition>
       </router-view>
